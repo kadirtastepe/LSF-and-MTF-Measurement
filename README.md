@@ -43,7 +43,7 @@ Designed objects in [mm] dimensions pictures taken by camera. In this process di
 
 Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. 
 
-![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
+![samples](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samples.png)
 Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
 
 <img src="http://latex.codecogs.com/svg.latex?R_{pxmm,vertical}&space;=&space;\frac{2042-1917}{3mm}&space;\cong&space;41.67&space;px/mm" title="http://latex.codecogs.com/svg.latex?R_{pxmm,vertical} = \frac{2042-1917}{3mm} \cong 41.67 px/mm" />
@@ -87,9 +87,9 @@ title("Vertical Sample");grid on ;grid minor
 
 ### Output of the program
 
-![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
+![LSFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFV.png)
 
-![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
+![LSFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFH.png)
 
 
 
