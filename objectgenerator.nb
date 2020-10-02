@@ -1,0 +1,24 @@
+Real Size Object Generation
+mm = 7.2/2.54; (*Convert pixel to mm*)
+a = {0, 5, 6, 7, 7.5, 8.5} mm; (*widths*)
+c = {5, 6, 7, 7.5, 8.5, 8.6} mm;
+b = 0 mm;
+d = 10 mm;
+color = {White, Black, White, Black, White, Black};
+(*By using this method we can control widths of 
+the stripes*)
+graphics = 
+ Show[Graphics[
+   Table[Style[Rectangle[{Part[a, x], b}, 
+   {Part[c, x], d}], Part[color, x]], {x, 1, 6}]]]
+(*Export*)
+(*Horizontal Stripes*)
+Export["plot.png", 
+Binarize@ImageResize[graphics,{8.6 mm, 10 mm}]] 
+(*Vertical Stripes*)
+Export["plot1.png", Rotate[Binarize@
+ImageResize[graphics, {8.6 mm, 10 mm}], Pi/2]] 
+(*Rectangle*)
+Export["plot2.png", 
+Binarize@ImageResize[Graphics[
+Rectangle[]], {5 mm, 3 mm}]] 
