@@ -44,6 +44,52 @@ Designed objects in [mm] dimensions pictures taken by camera. In this process di
 Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. 
 
 ![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
+Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
+
+<img src="http://latex.codecogs.com/svg.latex?R_{pxmm,vertical}&space;=&space;\frac{2042-1917}{3mm}&space;\cong&space;41.67&space;px/mm" title="http://latex.codecogs.com/svg.latex?R_{pxmm,vertical} = \frac{2042-1917}{3mm} \cong 41.67 px/mm" />
+
+<img src="http://latex.codecogs.com/svg.latex?R_{pxmm,horizontal}&space;=&space;\frac{1651-1451}{5mm}&space;=&space;40.00&space;px/mm&space;" title="http://latex.codecogs.com/svg.latex?R_{pxmm,horizontal} = \frac{1651-1451}{5mm} = 40.00 px/mm " />
+
+<img src="http://latex.codecogs.com/svg.latex?R_{pxmm}&space;\cong&space;&space;40.84&space;px/mm&space;" title="http://latex.codecogs.com/svg.latex?R_{pxmm} \cong 40.84 px/mm " />
+
+Which means there is an approximately 41 pixel per mm. With this ratio we can use both dimensions. I take a small sample(red region in Figure 2) with paint from the whole picture and using MATLAB analyzed it. Because I do not have enough equipment to analyse the whole picture. Of course in several methods the whole picture could be analyzed. But slice of a whole picture is enough to calculate the line spread function.
+
+### Finding Intensity Profile of Images
+Now we need information about intensities of pixels in sample image.
+
+### Matlab Code for Finding Intensity and Pixels
+Small samples taken as we see in Figure 2 from the Figure 1 by using paint. Plotting intensities of small samples of grayscaled image pixels in vertical and horizontal directions gives intensity profile of the image.
+
+```Matlab
+clear all, close all, clc
+
+I = imread('verticaldata.png');
+%I = imread('horizontaldata.png'); 
+
+x = [0 size(I,2)];
+y = [size(I,1)/2 size(I,1)/2];
+%y = [0 size(I,1)];
+%x = [size(I,2)/2 size(I,2)/2];
+
+c = improfile(I,x,y);
+figure
+subplot(2,1,1)
+imshow(I)
+hold on
+plot(x,y,'r')
+subplot(2,1,2)
+plot(-c(:,1,1)/max(c(:1,1))+1,'r') %Normalized
+hold on
+xlabel("Pixel Distance")
+ylabel("Intensity")
+title("Vertical Sample");grid on ;grid minor
+```
+
+### Output of the program
+
+![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
+
+![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
 
 
 
