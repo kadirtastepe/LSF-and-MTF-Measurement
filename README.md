@@ -111,7 +111,7 @@ By using 40.84 px/mm conversion we calculate standar deviation(σ) as,
 
 Another way to do this, peak value of the second peak is 106. We can calculate σ from the peak value. 
 
-<img src="http://latex.codecogs.com/svg.latex?\fbox{$\sigma&space;=&space;\frac{1}{106\sqrt{2\pi}}&space;=&space;3.76\times&space;10^{-3}&space;(\frac{1}{pixel})$&space;}&space;" title="http://latex.codecogs.com/svg.latex?\fbox{$\sigma = \frac{1}{106\sqrt{2\pi}} = 3.76\times 10^{-3} (\frac{1}{pixel})$ } " />
+<img src="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times&space;10^{-3}(\frac{1}{pixel})$}&space;" title="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times 10^{-3}(\frac{1}{pixel})$} " />
 
 ### Conclusions
 Line spread function(LSF) is a measure of the ability of a optical system to form sharp images. As we see in graphs width of the narrow bandwidth is better for resolving images. Because of that in a wide bandwith(FWHM) system lines may not be distinguishable. 
