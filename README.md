@@ -205,9 +205,28 @@ grid on, grid minor
 ```
 ## Output of the program:
 
-<img src="http://latex.codecogs.com/svg.latex?N&space;e&space;(vertical)&space;=&space;1.0129&space;\\N&space;e&space;(horizontal)&space;=&space;1.2676" title="http://latex.codecogs.com/svg.latex?N e (vertical) = 1.0129 \\N e (horizontal) = 1.2676" />
+<img src="http://latex.codecogs.com/svg.latex?N&space;e&space;(vertical)&space;=&space;1.0129&space;" title="http://latex.codecogs.com/svg.latex?N e (vertical) = 1.0129 " />
 
+<img src="http://latex.codecogs.com/svg.latex?N_e&space;(horizontal)&space;=&space;1.2676" title="http://latex.codecogs.com/svg.latex?N_e (horizontal) = 1.2676" />
 
+## Modulation Transfer Functions
+![MTFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/MTFH.png)
 
+![MTFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/MTFV.png)
 
+# Conclusions
+ In this experiment, I have determined the Modulation Transfer Function of my smartphone camera with 25 objects from 100lp/cm down to 2lp/cm. Modulation transfer function measures the response of a optical system for low and high spatial frequencies. I analyzed the effects of spatial frequency of the objects to the spatial resolution of my smartphone camera.  
+
+Measurement, tools that I have used and medium is very important in this experiment. Because of the low light in the medium intensity values are small. And because of the low DPI printer that I have used sampling process is not that efficient. 
+
+MTF in horizontal direction is strictly decreasing as expected, because of the spatial frequency of the objects are decreasing. In Figure 9.b. there is some fluctuations in MTF in vertical direction. Probably sampling process is not that efficient in my experiment. Low light level in the room, low DPI printed paper, camera angle and reflections causes this errors. When spatial frequency is lower, objects are distinguishable and are not interact with each other, peak to peak variations shouldn't be affacted that much. But if spatial frequency of the objects gets bigger, objects would be indistinguishable. Of course spatial resolution of the optical device is important here. But this still effects intensity of the objects.  
+
+Noise equivalent bandwith values of the camera is 1.0129 for verical and 1.2676 for horizontal.
+
+# Licence
+Released under licence: the GPL version 3 license.
+
+Using without reference is, among other things, against the current license agreement (GPL).
+
+Scientific or technical publications resulting from projects using this code are required to citate.
 
