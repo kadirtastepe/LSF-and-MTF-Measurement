@@ -43,6 +43,10 @@ Designed objects in [mm] dimensions pictures taken by camera. In this process di
 
 Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. 
 
+![projectile-motion](https://github.com/kadirtastepe/Measurement-of-LSF-and-MTF-of-a-Digital-Camera/blob/main/samples.png)
+
+
+
 
 
 
