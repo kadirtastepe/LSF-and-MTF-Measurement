@@ -18,14 +18,8 @@
 
 <h1> Mathematica Code For Real Size Object Generation </h1>
 
-<head>
-  <link href="css/shCore.css" rel="stylesheet" type="text/css" />
-  <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <pre class='brush: Mathematica'>
-mm = 7.2/2.54; (*Convert pixel to mm*)
+<pre><code class="language-mathematica">
+   mm = 7.2/2.54; (*Convert pixel to mm*)
 a = {0, 5, 6, 7, 7.5, 8.5} mm; (*widths*)
 c = {5, 6, 7, 7.5, 8.5, 8.6} mm;
 b = 0 mm;
@@ -47,15 +41,8 @@ ImageResize[graphics, {8.6 mm, 10 mm}], Pi/2]]
 (*Rectangle*)
 Export["plot2.png", 
 Binarize@ImageResize[Graphics[
-Rectangle[]], {5 mm, 3 mm}]] 
-  </pre>
-
-  <script src="js/shCore.js"></script>
-  <script src="js/shBrushCpp.js"></script>
-  <script>
-    SyntaxHighlighter.all()
-  </script>
-</body>
+Rectangle[]], {5 mm, 3 mm}]] </code></pre>
+    
 
 
 
@@ -78,15 +65,21 @@ Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
 
 <img src="http://latex.codecogs.com/svg.latex?R_{pxmm}&space;\cong&space;&space;40.84&space;px/mm&space;" title="http://latex.codecogs.com/svg.latex?R_{pxmm} \cong 40.84 px/mm " />
 
-Which means there is an approximately 41 pixel per mm. With this ratio we can use both dimensions. I take a small sample(red region in Figure 2) with paint from the whole picture and using MATLAB analyzed it. Because I do not have enough equipment to analyse the whole picture. Of course in several methods the whole picture could be analyzed. But slice of a whole picture is enough to calculate the line spread function.
+<p>Which means there is an approximately 41 pixel per mm. With this ratio we can use both dimensions. I take a small sample(red region in Figure 2) with paint from the whole picture and using MATLAB analyzed it. Because I do not have enough equipment to analyse the whole picture. Of course in several methods the whole picture could be analyzed. But slice of a whole picture is enough to calculate the line spread function. </p>
 
-### Finding Intensity Profile of Images
+<h> Finding Intensity Profile of Images </h>
 Now we need information about intensities of pixels in sample image.
 
-### Matlab Code for Finding Intensity and Pixels
-Small samples taken as we see in Figure 2 from the Figure 1 by using paint. Plotting intensities of small samples of grayscaled image pixels in vertical and horizontal directions gives intensity profile of the image.
+<h> Matlab Code for Finding Intensity and Pixels </h>
+<p>Small samples taken as we see in Figure 2 from the Figure 1 by using paint. Plotting intensities of small samples of grayscaled image pixels in vertical and horizontal directions gives intensity profile of the image. </p>
 
-```Matlab
+<head>
+  <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+  <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <pre class='brush: MATLAB'>
 clear all, close all, clc
 
 I = imread('verticaldata.png');
@@ -109,9 +102,21 @@ hold on
 xlabel("Pixel Distance")
 ylabel("Intensity")
 title("Vertical Sample");grid on ;grid minor
-```
+  </pre>
 
-### Output of the program
+  <script src="js/shCore.js"></script>
+  <script src="js/shBrushCpp.js"></script>
+  <script>
+    SyntaxHighlighter.all()
+  </script>
+</body>
+
+
+
+
+
+
+<h> Output of the program </h>
 
 ![LSFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFV.png)
 
@@ -121,11 +126,11 @@ Figure 2: Vertical Sample taken from Horizontal Stripes
 
 Figure 3: Horizontal Sample taken from Vertical Stripes
 
-As we can see in the graphs intensity of the width of 0.1mm is almost impossible to see. In horizontal sample we do not have intensity of it and in vertical sample there is a small peak. It seems camera didn't detected the line because of the low opacity of the line, because of low DPI of the printer.
+<p>As we can see in the graphs intensity of the width of 0.1mm is almost impossible to see. In horizontal sample we do not have intensity of it and in vertical sample there is a small peak. It seems camera didn't detected the line because of the low opacity of the line, because of low DPI of the printer. </p>
 
-### Estimating Standart Deviation(σ)
+<h> Estimating Standart Deviation(σ) </h>
 
-In order to calculate FWHM, it’s easy to chose second peak (0.5mm peak) in vertical sample. Because it seems more like gaussian funtion than others.
+<p>In order to calculate FWHM, it’s easy to chose second peak (0.5mm peak) in vertical sample. Because it seems more like gaussian funtion than others. </p>
 
 ![peak](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/peak.png)
 
@@ -135,36 +140,44 @@ By using 40.84 px/mm conversion we calculate standar deviation(σ) as,
 
 <img src="http://latex.codecogs.com/svg.latex?\fbox{$\sigma&space;=&space;0.1040&space;mm$}&space;\;&space;or&space;\;&space;\fbox{$\sigma&space;=&space;4.247&space;px$&space;}" title="http://latex.codecogs.com/svg.latex?\fbox{$\sigma = 0.1040 mm$} \; or \; \fbox{$\sigma = 4.247 px$ }" />
 
-Another way to do this, peak value of the second peak is 106. We can calculate σ from the peak value. 
+<p>Another way to do this, peak value of the second peak is 106. We can calculate σ from the peak value. </p>
 
 <img src="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times&space;10^{-3}(\frac{1}{pixel})$}&space;" title="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times 10^{-3}(\frac{1}{pixel})$} " />
 
-### Conclusions
-Line spread function(LSF) is a measure of the ability of a optical system to form sharp images. As we see in graphs width of the narrow bandwidth is better for resolving images. Because of that in a wide bandwith(FWHM) system lines may not be distinguishable. 
+<h> Conclusions </h>
+<p> Line spread function(LSF) is a measure of the ability of a optical system to form sharp images. As we see in graphs width of the narrow bandwidth is better for resolving images. Because of that in a wide bandwith(FWHM) system lines may not be distinguishable. </p>
 
-FWHM is a measure of distiguishability between physical features. For our system some features resolvable for 0.1mm, because of the sampling medium and test image. If two peaks have overlapping FWHMs, they are unresolvable, they will look like one peak.
+<p>FWHM is a measure of distiguishability between physical features. For our system some features resolvable for 0.1mm, because of the sampling medium and test image. If two peaks have overlapping FWHMs, they are unresolvable, they will look like one peak. </p>
 
-# Modulation Transfer Function(MTF)
-## Method of Experiment
-A test image is prepared in Mathematica 12.1.1. All objects are in actual size. This test image includes five equidistant vertical black and white stripes from 100 lp/cm to 2 lp/cm. First I created equidistant stripes in actual size, then changed the widths of the stripes.
+<h> Modulation Transfer Function(MTF) </h>
+<h> Method of Experiment </h>
+<p>A test image is prepared in Mathematica 12.1.1. All objects are in actual size. This test image includes five equidistant vertical black and white stripes from 100 lp/cm to 2 lp/cm. First I created equidistant stripes in actual size, then changed the widths of the stripes. </p>
 
-### Object Design and Experimental Procedure
-By using same Mathematica code we generate actual size test images.
+<h> Object Design and Experimental Procedure </h>
+<p>By using same Mathematica code we generate actual size test images. </p>
 
-Each 5 stripes forms an object. I cropped every object in paint with respect to
-their frequencies in order to analyze them one by one.
+<p>Each 5 stripes forms an object. I cropped every object in paint with respect to
+their frequencies in order to analyze them one by one. </p>
 
 ![samplings](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samplings.png)
 
-Some samples seems different from test image, because of the low DPI printer.
+<p>Some samples seems different from test image, because of the low DPI printer.
 We are going to find intensity profiles of these samples, just like in the LSF
-section.
+section. </p>
 
-### Analysis of the Objects
-Plotting intensities of small samples of grayscaled images pixels in horizontal
-direction gives intensity profile of the image.
+<h> Analysis of the Objects </h>
+<p>Plotting intensities of small samples of grayscaled images pixels in horizontal
+direction gives intensity profile of the image. </p>
 
-```Matlab
+
+
+<head>
+  <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+  <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <pre class='brush: MATLAB'>
 clear all, close all, clc
 
 I = imread('*.bmp');
@@ -186,9 +199,18 @@ xlabel("x","FontSize",16)
 ylabel("Intensity(x)","FontSize",16)
 title("Intensity of the Sample","FontSize",16)
 grid on, grid minor
-```
-## Analysis
-### Modulation Transfer Function determination of objects
+  </pre>
+
+  <script src="js/shCore.js"></script>
+  <script src="js/shBrushCpp.js"></script>
+  <script>
+    SyntaxHighlighter.all()
+  </script>
+</body>
+
+
+<h> Analysis </h>
+<b> Modulation Transfer Function determination of objects</b>
 ### Analysis of the Object 7lp/cm
 ![m7](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m7.png)
 ### Analysis of the Object 18lp/cm
