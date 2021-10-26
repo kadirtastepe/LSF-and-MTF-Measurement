@@ -6,8 +6,7 @@
 
 <h1> Measurement-of-LSF-and-MTF-of-a-Digital-Camera </h1>
 
-## Introduction
-### Summary
+<h2>Introduction </h2>
 <p>In this work I tried to find Line Spread Function(LSF) and Modulation Transfer Function(MTF) of my smartphone. Objects are designed in Mathematica 12.1.1 program. For LSF I designed equidistant objects (binarized white and black stripes) with different widths and for MTF I designed equidistant objects (binarized white and black stripes) with same and various widths in actual size. Actual size means computer designs based on pixels, I designed objects in real life measure mm unit. Then I printed the objects, objects dimensions are in mm. Then I take pictures of the objects with my smartphone camera in Automatic mode, without using zoom or flashlight and I save images as RAW JPEG and transfered to my computer with data cable for eliminating data loss. In order to analyse the images I take a small samples from images by using paint. Because whole image contains lot of information and I do not have enough computer power for that. Samples analyzed in MATLAB R2020a. By plotting graphs intensities of pixels of grayscaled images versus pixels, I have calculated LSF and MTF. </p>
 
 <h1>Line Spread Function(LSF)</h1>
@@ -49,7 +48,7 @@ Rectangle[]], {5 mm, 3 mm}]] </code></pre>
 
 <p>Designed objects in [mm] dimensions pictures taken by camera. In this process dimensions has changed. Now image dimensions are in pixel. By using actual size(mm) of the object and pixel size of the object ratio, we can make conversion of dimensions. </p>
 
-<h> Estimating Pixel to mm Conversion </h>
+<h1> Estimating Pixel to mm Conversion </h1>
 
 <p> Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. <p>
 
@@ -67,19 +66,15 @@ Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
 
 <p>Which means there is an approximately 41 pixel per mm. With this ratio we can use both dimensions. I take a small sample(red region in Figure 2) with paint from the whole picture and using MATLAB analyzed it. Because I do not have enough equipment to analyse the whole picture. Of course in several methods the whole picture could be analyzed. But slice of a whole picture is enough to calculate the line spread function. </p>
 
-<h> Finding Intensity Profile of Images </h>
+<h1> Finding Intensity Profile of Images </h1>
 Now we need information about intensities of pixels in sample image.
 
-<h> Matlab Code for Finding Intensity and Pixels </h>
+<h1> Matlab Code for Finding Intensity and Pixels </h1>
 <p>Small samples taken as we see in Figure 2 from the Figure 1 by using paint. Plotting intensities of small samples of grayscaled image pixels in vertical and horizontal directions gives intensity profile of the image. </p>
 
-<head>
-  <link href="css/shCore.css" rel="stylesheet" type="text/css" />
-  <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
-</head>
 
-<body>
-  <pre class='brush: MATLAB'>
+
+<pre><code class="language-matlab">
 clear all, close all, clc
 
 I = imread('verticaldata.png');
@@ -102,21 +97,15 @@ hold on
 xlabel("Pixel Distance")
 ylabel("Intensity")
 title("Vertical Sample");grid on ;grid minor
-  </pre>
 
-  <script src="js/shCore.js"></script>
-  <script src="js/shBrushCpp.js"></script>
-  <script>
-    SyntaxHighlighter.all()
-  </script>
-</body>
+</code></pre>
 
 
 
 
 
 
-<h> Output of the program </h>
+<h1> Output of the program </h1>
 
 ![LSFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFV.png)
 
@@ -128,7 +117,7 @@ Figure 3: Horizontal Sample taken from Vertical Stripes
 
 <p>As we can see in the graphs intensity of the width of 0.1mm is almost impossible to see. In horizontal sample we do not have intensity of it and in vertical sample there is a small peak. It seems camera didn't detected the line because of the low opacity of the line, because of low DPI of the printer. </p>
 
-<h> Estimating Standart Deviation(σ) </h>
+<h1> Estimating Standart Deviation(σ) </h1>
 
 <p>In order to calculate FWHM, it’s easy to chose second peak (0.5mm peak) in vertical sample. Because it seems more like gaussian funtion than others. </p>
 
@@ -144,13 +133,13 @@ By using 40.84 px/mm conversion we calculate standar deviation(σ) as,
 
 <img src="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times&space;10^{-3}(\frac{1}{pixel})$}&space;" title="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times 10^{-3}(\frac{1}{pixel})$} " />
 
-<h> Conclusions </h>
+<h1> Conclusions </h1>
 <p> Line spread function(LSF) is a measure of the ability of a optical system to form sharp images. As we see in graphs width of the narrow bandwidth is better for resolving images. Because of that in a wide bandwith(FWHM) system lines may not be distinguishable. </p>
 
 <p>FWHM is a measure of distiguishability between physical features. For our system some features resolvable for 0.1mm, because of the sampling medium and test image. If two peaks have overlapping FWHMs, they are unresolvable, they will look like one peak. </p>
 
-<h> Modulation Transfer Function(MTF) </h>
-<h> Method of Experiment </h>
+<h1> Modulation Transfer Function(MTF) </h1>
+<h1> Method of Experiment </h1>
 <p>A test image is prepared in Mathematica 12.1.1. All objects are in actual size. This test image includes five equidistant vertical black and white stripes from 100 lp/cm to 2 lp/cm. First I created equidistant stripes in actual size, then changed the widths of the stripes. </p>
 
 <h> Object Design and Experimental Procedure </h>
@@ -165,7 +154,7 @@ their frequencies in order to analyze them one by one. </p>
 We are going to find intensity profiles of these samples, just like in the LSF
 section. </p>
 
-<h> Analysis of the Objects </h>
+<h1> Analysis of the Objects </h1>
 <p>Plotting intensities of small samples of grayscaled images pixels in horizontal
 direction gives intensity profile of the image. </p>
 
@@ -209,19 +198,20 @@ grid on, grid minor
 </body>
 
 
-<h> Analysis </h>
+<h1> Analysis </h1>
 <b> Modulation Transfer Function determination of objects</b>
 ### Analysis of the Object 7lp/cm
 ![m7](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m7.png)
 ### Analysis of the Object 18lp/cm
 ![m18](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m18.png)
 
-We are seeing peak to peak variations of some samples in figure 8. The other 24 sample analyzed exactly in same way these 2 sample analyzed. In horizontal and vertical directions peak to peak variations determines Spp (vertical) and Spp (horizontal) values. By using this values we can determine the modulation transfer function.
+<p>We are seeing peak to peak variations of some samples in figure 8. The other 24 sample analyzed exactly in same way these 2 sample analyzed. In horizontal and vertical directions peak to peak variations determines Spp (vertical) and Spp (horizontal) values. By using this values we can determine the modulation transfer function. </p>
 
-## Graphs & Noise Equivalent Bandwiths
+<h1>Graphs & Noise Equivalent Bandwiths </h1>
 Plotting Spatial Resolution against the S pp values gives modulation transfer function(MTF) in horizontal and vertical directions. MATLAB’s enbw(equivalent noise bandwith) function calculates the noise equivalent bandwith values.
 
-```Matlab
+
+<pre><code class="language-mathematica">
 close all, clear all, clc
 %Spatial Resolution
 x = [2:22,34,65,71,100];
@@ -250,33 +240,38 @@ title("MTF of Digital Camera (Horizontal)","FontSize",14)
 xlabel("Spatial Resolution(lp/cm)","FontSize",14)
 ylabel("MTF Horizontal","FontSize",14)
 grid on, grid minor
-```
-## Output of the program:
+</code></pre>
+    
+
+
+
+
+<h1> Output of the program: </h1>
 
 <img src="http://latex.codecogs.com/svg.latex?N&space;e&space;(vertical)&space;=&space;1.0129&space;" title="http://latex.codecogs.com/svg.latex?N e (vertical) = 1.0129 " />
 
 <img src="http://latex.codecogs.com/svg.latex?N_e&space;(horizontal)&space;=&space;1.2676" title="http://latex.codecogs.com/svg.latex?N_e (horizontal) = 1.2676" />
 
-## Modulation Transfer Functions
+<h1>Modulation Transfer Functions</h1>
 ![MTFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/MTFH.png)
 
 ![MTFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/MTFV.png)
 
-# Conclusions
- In this experiment, I have determined the Modulation Transfer Function of my smartphone camera with 25 objects from 100lp/cm down to 2lp/cm. Modulation transfer function measures the response of a optical system for low and high spatial frequencies. I analyzed the effects of spatial frequency of the objects to the spatial resolution of my smartphone camera.  
+<h1> Conclusions </h1>
+<p> In this experiment, I have determined the Modulation Transfer Function of my smartphone camera with 25 objects from 100lp/cm down to 2lp/cm. Modulation transfer function measures the response of a optical system for low and high spatial frequencies. I analyzed the effects of spatial frequency of the objects to the spatial resolution of my smartphone camera.  </p>
 
-Measurement, tools that I have used and medium is very important in this experiment. Because of the low light in the medium intensity values are small. And because of the low DPI printer that I have used sampling process is not that efficient. 
+ <p> Measurement, tools that I have used and medium is very important in this experiment. Because of the low light in the medium intensity values are small. And because of the low DPI printer that I have used sampling process is not that efficient. </p>
 
-MTF in horizontal direction is strictly decreasing as expected, because of the spatial frequency of the objects are decreasing. In Figure 9.b. there is some fluctuations in MTF in vertical direction. Probably sampling process is not that efficient in my experiment. Low light level in the room, low DPI printed paper, camera angle and reflections causes this errors. When spatial frequency is lower, objects are distinguishable and are not interact with each other, peak to peak variations shouldn't be affacted that much. But if spatial frequency of the objects gets bigger, objects would be indistinguishable. Of course spatial resolution of the optical device is important here. But this still effects intensity of the objects.  
+<p> MTF in horizontal direction is strictly decreasing as expected, because of the spatial frequency of the objects are decreasing. In Figure 9.b. there is some fluctuations in MTF in vertical direction. Probably sampling process is not that efficient in my experiment. Low light level in the room, low DPI printed paper, camera angle and reflections causes this errors. When spatial frequency is lower, objects are distinguishable and are not interact with each other, peak to peak variations shouldn't be affacted that much. But if spatial frequency of the objects gets bigger, objects would be indistinguishable. Of course spatial resolution of the optical device is important here. But this still effects intensity of the objects.  </p>
 
-Noise equivalent bandwith values of the camera is 1.0129 for verical and 1.2676 for horizontal.
+<p> Noise equivalent bandwith values of the camera is 1.0129 for verical and 1.2676 for horizontal. </p>
 
-# Licence
-Released under licence: the GPL version 3 license.
+<h1> Licence </h1>
+<p> Released under licence: the GPL version 3 license. </p>
 
-Using without reference is, among other things, against the current license agreement (GPL).
+<p> Using without reference is, among other things, against the current license agreement (GPL). </p>
 
-Scientific or technical publications resulting from projects using this code are required to citate.
+<p>Scientific or technical publications resulting from projects using this code are required to citate. </p>
 
 
 
@@ -284,5 +279,6 @@ Scientific or technical publications resulting from projects using this code are
 
 </body>
 </html>
+
 
 
