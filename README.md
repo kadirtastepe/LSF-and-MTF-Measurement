@@ -43,7 +43,7 @@ Designed objects in [mm] dimensions pictures taken by camera. In this process di
 
 Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. 
 
-![samples](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samples.png)
+![samples](samples.png)
 Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
 
 <img src="http://latex.codecogs.com/svg.latex?R_{pxmm,vertical}&space;=&space;\frac{2042-1917}{3mm}&space;\cong&space;41.67&space;px/mm" title="http://latex.codecogs.com/svg.latex?R_{pxmm,vertical} = \frac{2042-1917}{3mm} \cong 41.67 px/mm" />
@@ -87,11 +87,11 @@ title("Vertical Sample");grid on ;grid minor
 
 ### Output of the program
 
-![LSFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFV.png)
+![LSFV](LSFV.png)
 
 Figure 2: Vertical Sample taken from Horizontal Stripes
 
-![LSFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFH.png)
+![LSFH](LSFH.png)
 
 Figure 3: Horizontal Sample taken from Vertical Stripes
 
@@ -101,7 +101,7 @@ As we can see in the graphs intensity of the width of 0.1mm is almost impossible
 
 In order to calculate FWHM, it’s easy to chose second peak (0.5mm peak) in vertical sample. Because it seems more like gaussian funtion than others.
 
-![peak](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/peak.png)
+![peak](peak.png)
 
 By using 40.84 px/mm conversion we calculate standar deviation(σ) as,
 
@@ -128,7 +128,7 @@ By using same Mathematica code we generate actual size test images.
 Each 5 stripes forms an object. I cropped every object in paint with respect to
 their frequencies in order to analyze them one by one.
 
-![samplings](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samplings.png)
+![samplings](samplings.png)
 
 Some samples seems different from test image, because of the low DPI printer.
 We are going to find intensity profiles of these samples, just like in the LSF
@@ -164,9 +164,9 @@ grid on, grid minor
 ## Analysis
 ### Modulation Transfer Function determination of objects
 ### Analysis of the Object 7lp/cm
-![m7](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m7.png)
+![m7](m7.png)
 ### Analysis of the Object 18lp/cm
-![m18](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m18.png)
+![m18](m18.png)
 
 We are seeing peak to peak variations of some samples in figure 8. The other 24 sample analyzed exactly in same way these 2 sample analyzed. In horizontal and vertical directions peak to peak variations determines Spp (vertical) and Spp (horizontal) values. By using this values we can determine the modulation transfer function.
 
@@ -210,9 +210,9 @@ grid on, grid minor
 <img src="http://latex.codecogs.com/svg.latex?N_e&space;(horizontal)&space;=&space;1.2676" title="http://latex.codecogs.com/svg.latex?N_e (horizontal) = 1.2676" />
 
 ## Modulation Transfer Functions
-![MTFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/MTFH.png)
+![MTFH](MTFH.png)
 
-![MTFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/MTFV.png)
+![MTFV](MTFV.png)
 
 # Conclusions
  In this experiment, I have determined the Modulation Transfer Function of my smartphone camera with 25 objects from 100lp/cm down to 2lp/cm. Modulation transfer function measures the response of a optical system for low and high spatial frequencies. I analyzed the effects of spatial frequency of the objects to the spatial resolution of my smartphone camera.  
