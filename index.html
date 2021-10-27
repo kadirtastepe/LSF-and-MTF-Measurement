@@ -52,7 +52,7 @@ Rectangle[]], {5 mm, 3 mm}]] </code></pre>
 
 <p> Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. <p>
 
-![samples]()
+<img src="samples.png" alt="samples" border="1"  width="1280" height="640" >
 Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
 
 <img src="https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samples.png" alt="Figure1">
@@ -107,12 +107,16 @@ title("Vertical Sample");grid on ;grid minor
 
 <h1> Output of the program </h1>
 
-![LSFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFV.png)
+<!-- ![LSFV](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFV.png) -->
+   
+ <img src="LSFV.png" alt="LSFV" border="1"  width="1280" height="640" >
 
 Figure 2: Vertical Sample taken from Horizontal Stripes
 
-![LSFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFH.png)
+<!-- ![LSFH](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/LSFH.png) -->
 
+ <img src="LSFH.png" alt="LSFH" border="1"  width="1280" height="640" >
+   
 Figure 3: Horizontal Sample taken from Vertical Stripes
 
 <p>As we can see in the graphs intensity of the width of 0.1mm is almost impossible to see. In horizontal sample we do not have intensity of it and in vertical sample there is a small peak. It seems camera didn't detected the line because of the low opacity of the line, because of low DPI of the printer. </p>
@@ -121,7 +125,9 @@ Figure 3: Horizontal Sample taken from Vertical Stripes
 
 <p>In order to calculate FWHM, it’s easy to chose second peak (0.5mm peak) in vertical sample. Because it seems more like gaussian funtion than others. </p>
 
-![peak](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/peak.png)
+<!-- ![peak](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/peak.png) -->
+
+<img src="peak.png" alt="peak" border="1"  width="1280" height="640" >
 
 By using 40.84 px/mm conversion we calculate standar deviation(σ) as,
 
@@ -148,7 +154,8 @@ By using 40.84 px/mm conversion we calculate standar deviation(σ) as,
 <p>Each 5 stripes forms an object. I cropped every object in paint with respect to
 their frequencies in order to analyze them one by one. </p>
 
-![samplings](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samplings.png)
+<!-- ![samplings](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/samplings.png) -->
+<img src="samplings.png" alt="samplings" border="1"  width="1280" height="640" >
 
 <p>Some samples seems different from test image, because of the low DPI printer.
 We are going to find intensity profiles of these samples, just like in the LSF
@@ -199,12 +206,16 @@ grid on, grid minor
 
 
 <h1> Analysis </h1>
-<b> Modulation Transfer Function determination of objects</b>
-### Analysis of the Object 7lp/cm
-![m7](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m7.png)
-### Analysis of the Object 18lp/cm
-![m18](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m18.png)
+<h2> Modulation Transfer Function determination of objects</h2>
+   <h3> Analysis of the Object 7lp/cm </h3>
+<!-- ![m7](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m7.png) -->
+   <img src="m7.png" alt="m7" border="1"  width="1280" height="640" >
+   <h3> Analysis of the Object 18lp/cm </h3>
+<!-- ![m18](https://github.com/kadirtastepe/LSF-and-MTF-Measurement/blob/main/m18.png) -->
 
+<img src="m18.png" alt="m18" border="1"  width="1280" height="640" >
+   
+   
 <p>We are seeing peak to peak variations of some samples in figure 8. The other 24 sample analyzed exactly in same way these 2 sample analyzed. In horizontal and vertical directions peak to peak variations determines Spp (vertical) and Spp (horizontal) values. By using this values we can determine the modulation transfer function. </p>
 
 <h1>Graphs & Noise Equivalent Bandwiths </h1>
