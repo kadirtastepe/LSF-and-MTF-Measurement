@@ -2,13 +2,13 @@
 
 ## Introduction
 ### Summary
-In this work I tried to find Line Spread Function(LSF) and Modulation Transfer Function(MTF) of my smartphone. Objects are designed in Mathematica 12.1.1 program. For LSF I designed equidistant objects (binarized white and black stripes) with different widths and for MTF I designed equidistant objects (binarized white and black stripes) with same and various widths in actual size. Actual size means computer designs based on pixels, I designed objects in real life measure mm unit. Then I printed the objects, objects dimensions are in mm. Then I take pictures of the objects with my smartphone camera in Automatic mode, without using zoom or flashlight and I save images as RAW JPEG and transfered to my computer with data cable for eliminating data loss. In order to analyse the images I take a small samples from images by using paint. Because whole image contains lot of information and I do not have enough computer power for that. Samples analyzed in MATLAB R2020a. By plotting graphs intensities of pixels of grayscaled images versus pixels, I have calculated LSF and MTF.
+In this work, I tried to find the Line Spread Function(LSF) and Modulation Transfer Function(MTF) of my smartphone. Objects are designed in Mathematica 12.1.1 program. For LSF I designed equidistant objects (binarized white and black stripes) with different widths and for MTF I designed equidistant objects (binarized white and black stripes) with the same and various widths in actual size. Actual size means computer designs based on pixels, I designed objects in real-life measure mm unit. Then I printed the objects with dimensions in mm. Then I take pictures of the objects with my smartphone camera in Automatic mode, without using zoom or flashlight and I save images as RAW JPEG and transferred them to my computer with a data cable for eliminating data loss. To analyse the images I take small samples from images by using paint. Because the whole image contains a lot of information and I do not have enough computing power for that. Samples analyzed in MATLAB R2020a. By plotting graphs intensities of pixels of grayscaled images versus pixels, I have calculated LSF and MTF.
 
 ## Line Spread Function(LSF)
 
 ### Methods of Experiment
 
-A test image (Figure 1) is prepared in Mathematica 12.1.1. All objects are in actual size. This test image includes three vertical and horzontal lines with widths of 1mm, 0.5mm and 0.1mm and one rectangle 5mm × 3mm. First I created equally distant stripes in actual size, then changed the widths of the stripes.
+A test image (Figure 1) is prepared in Mathematica 12.1.1. All objects are in actual size. This test image includes three vertical and horizontal lines with widths of 1mm, 0.5mm and 0.1mm and one rectangle of 5mm × 3mm. First I created equally distant stripes in actual size, then changed the widths of the stripes.
 
 ### Mathematica Code For Real Size Object Generation
 ```Mathematica
@@ -37,11 +37,11 @@ Binarize@ImageResize[Graphics[
 Rectangle[]], {5 mm, 3 mm}]] 
 ```
 
-Designed objects in [mm] dimensions pictures taken by camera. In this process dimensions has changed. Now image dimensions are in pixel. By using actual size(mm) of the object and pixel size of the object ratio, we can make conversion of dimensions. 
+Designed objects in [mm] dimensions pictures taken by the camera. In this process, dimensions have changed. Now image dimensions are in pixels. By using the actual size(mm) of the object and pixel size of the object ratio, we can make a conversion of dimensions. 
 
 ### Estimating Pixel to mm Conversion
 
-Pixel to mm conversion estimated by using corner points of the rectangle in Figure 2. By using the ratio of actual size of the rectangle and pixels detected by camera pixel to mm conversion estimated as follows. 
+Pixel-to-mm conversion is estimated by using the corner points of the rectangle in Figure 2. By using the ratio of the actual size of the rectangle and pixels detected by the camera pixel to mm conversion is estimated as follows.  
 
 ![samples](samples.png)
 Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
@@ -52,13 +52,13 @@ Figure: Test Image Taken by Camera, Image Size 3120 x 4160 pixels
 
 <img src="http://latex.codecogs.com/svg.latex?R_{pxmm}&space;\cong&space;&space;40.84&space;px/mm&space;" title="http://latex.codecogs.com/svg.latex?R_{pxmm} \cong 40.84 px/mm " />
 
-Which means there is an approximately 41 pixel per mm. With this ratio we can use both dimensions. I take a small sample(red region in Figure 2) with paint from the whole picture and using MATLAB analyzed it. Because I do not have enough equipment to analyse the whole picture. Of course in several methods the whole picture could be analyzed. But slice of a whole picture is enough to calculate the line spread function.
+Which means there is approximately 41 pixel per mm. With this ratio, we can use both dimensions. I take a small sample(red region in Figure 2) with paint from the whole picture and using MATLAB analyzed it. Because I do not have enough equipment to analyse the whole picture. Of course in several methods the whole picture could be analyzed. But a slice of the whole picture is enough to calculate the line spread function.
 
 ### Finding Intensity Profile of Images
-Now we need information about intensities of pixels in sample image.
+Now we need information about the intensities of pixels in the sample image.
 
 ### Matlab Code for Finding Intensity and Pixels
-Small samples taken as we see in Figure 2 from the Figure 1 by using paint. Plotting intensities of small samples of grayscaled image pixels in vertical and horizontal directions gives intensity profile of the image.
+Small samples were taken as we see in Figure 2 from Figure 1 by using paint. Plotting intensities of small samples of grayscaled image pixels in vertical and horizontal directions gives the intensity profile of the image.
 
 ```Matlab
 clear all, close all, clc
@@ -95,11 +95,12 @@ Figure 2: Vertical Sample taken from Horizontal Stripes
 
 Figure 3: Horizontal Sample taken from Vertical Stripes
 
-As we can see in the graphs intensity of the width of 0.1mm is almost impossible to see. In horizontal sample we do not have intensity of it and in vertical sample there is a small peak. It seems camera didn't detected the line because of the low opacity of the line, because of low DPI of the printer.
+As we can see in the graphs intensity of the width of 0.1mm is almost impossible to see. In the horizontal sample, we do not have the intensity of it and in the vertical sample, there is a small peak. It seems the camera didn't detect the line because of the low opacity of the line, because of the low DPI of the printer.
+
 
 ### Estimating Standart Deviation(σ)
 
-In order to calculate FWHM, it’s easy to chose second peak (0.5mm peak) in vertical sample. Because it seems more like gaussian funtion than others.
+To calculate FWHM, it’s easy to choose the second peak (0.5mm peak) in the vertical sample. Because it seems more like a gaussian function than others.
 
 ![peak](peak.png)
 
@@ -114,29 +115,29 @@ Another way to do this, peak value of the second peak is 106. We can calculate �
 <img src="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times&space;10^{-3}(\frac{1}{pixel})$}&space;" title="http://latex.codecogs.com/svg.latex?\fbox{$\sigma=\frac{1}{106\sqrt{2\pi}}=3.76\times 10^{-3}(\frac{1}{pixel})$} " />
 
 ### Conclusions
-Line spread function(LSF) is a measure of the ability of a optical system to form sharp images. As we see in graphs width of the narrow bandwidth is better for resolving images. Because of that in a wide bandwith(FWHM) system lines may not be distinguishable. 
+Line spread function(LSF) is a measure of the ability of an optical system to form sharp images. As we see in the graphs width of the narrow bandwidth is better for resolving images. Because of that in a wide bandwidth (FWHM) system lines may not be distinguishable. 
 
-FWHM is a measure of distiguishability between physical features. For our system some features resolvable for 0.1mm, because of the sampling medium and test image. If two peaks have overlapping FWHMs, they are unresolvable, they will look like one peak.
+FWHM is a measure of distinguishability between physical features. For our system some features are resolvable for 0.1mm, because of the sampling medium and test image. If two peaks have overlapping FWHMs, they are unresolvable, they will look like one peak.
 
 # Modulation Transfer Function(MTF)
 ## Method of Experiment
 A test image is prepared in Mathematica 12.1.1. All objects are in actual size. This test image includes five equidistant vertical black and white stripes from 100 lp/cm to 2 lp/cm. First I created equidistant stripes in actual size, then changed the widths of the stripes.
 
 ### Object Design and Experimental Procedure
-By using same Mathematica code we generate actual size test images.
+By using the same Mathematica code we generate actual size test images.
 
-Each 5 stripes forms an object. I cropped every object in paint with respect to
+Every 5 stripes form an object. I cropped every object in the paint with respect to
 their frequencies in order to analyze them one by one.
 
 ![samplings](samplings.png)
 
-Some samples seems different from test image, because of the low DPI printer.
-We are going to find intensity profiles of these samples, just like in the LSF
+Some samples seem different from the test image, because of the low DPI printer.
+We are going to find the intensity profiles of these samples, just like in the LSF
 section.
 
 ### Analysis of the Objects
 Plotting intensities of small samples of grayscaled images pixels in horizontal
-direction gives intensity profile of the image.
+direction gives the intensity profile of the image.
 
 ```Matlab
 clear all, close all, clc
@@ -168,10 +169,10 @@ grid on, grid minor
 ### Analysis of the Object 18lp/cm
 ![m18](m18.png)
 
-We are seeing peak to peak variations of some samples in figure 8. The other 24 sample analyzed exactly in same way these 2 sample analyzed. In horizontal and vertical directions peak to peak variations determines Spp (vertical) and Spp (horizontal) values. By using this values we can determine the modulation transfer function.
+We are seeing peak-to-peak variations of some samples in figure 8. The other 24 samples were analyzed exactly in the same way these 2 samples were analyzed. In horizontal and vertical directions peak to peak, variations determine Spp (vertical) and Spp (horizontal) values. By using these values we can determine the modulation transfer function.
 
 ## Graphs & Noise Equivalent Bandwiths
-Plotting Spatial Resolution against the S pp values gives modulation transfer function(MTF) in horizontal and vertical directions. MATLAB’s enbw(equivalent noise bandwith) function calculates the noise equivalent bandwith values.
+Plotting Spatial Resolution against the S pp values gives modulation transfer function(MTF) in horizontal and vertical directions. MATLAB’s enbw(equivalent noise bandwidth) function calculates the noise equivalent bandwidth values.
 
 ```Matlab
 close all, clear all, clc
@@ -215,13 +216,13 @@ grid on, grid minor
 ![MTFV](MTFV.png)
 
 # Conclusions
- In this experiment, I have determined the Modulation Transfer Function of my smartphone camera with 25 objects from 100lp/cm down to 2lp/cm. Modulation transfer function measures the response of a optical system for low and high spatial frequencies. I analyzed the effects of spatial frequency of the objects to the spatial resolution of my smartphone camera.  
+ In this experiment, I have determined the Modulation Transfer Function of my smartphone camera with 25 objects from 100lp/cm down to 2lp/cm. The modulation transfer function measures the response of an optical system for low and high spatial frequencies. I analyzed the effects of the spatial frequency of the objects on the spatial resolution of my smartphone camera.  
 
-Measurement, tools that I have used and medium is very important in this experiment. Because of the low light in the medium intensity values are small. And because of the low DPI printer that I have used sampling process is not that efficient. 
+Measurement, tools that I have used and medium are very important in this experiment. Because of the low light in the medium intensity values are small. And because of the low DPI printer that I have used sampling process is not that efficient. 
 
-MTF in horizontal direction is strictly decreasing as expected, because of the spatial frequency of the objects are decreasing. In Figure 9.b. there is some fluctuations in MTF in vertical direction. Probably sampling process is not that efficient in my experiment. Low light level in the room, low DPI printed paper, camera angle and reflections causes this errors. When spatial frequency is lower, objects are distinguishable and are not interact with each other, peak to peak variations shouldn't be affacted that much. But if spatial frequency of the objects gets bigger, objects would be indistinguishable. Of course spatial resolution of the optical device is important here. But this still effects intensity of the objects.  
+MTF in the horizontal direction is strictly decreasing as expected because the spatial frequency of the objects is decreasing. In Figure 9. b. there are some fluctuations in MTF in the vertical direction. Probably sampling process is not that efficient in my experiment. The low light level in the room, low DPI printed paper, camera angle and reflections cause these errors. When the spatial frequency is lower, objects are distinguishable and are not interact with each other, peak to peak variations shouldn't be affected that much. But if the spatial frequency of the objects gets bigger, objects would be indistinguishable. Of course, the spatial resolution of the optical device is important here. But this still affects the intensity of the objects.  
 
-Noise equivalent bandwith values of the camera is 1.0129 for verical and 1.2676 for horizontal.
+The noise equivalent bandwidth values of the camera are 1.0129 for vertical and 1.2676 for horizontal.
 
 # Licence
 Released under licence: the GPL version 3 license.
